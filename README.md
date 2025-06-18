@@ -1,6 +1,6 @@
 # Desafio Pokédex - Paulo Éder Medeiros Cardoso
 
-![Pokédex Demo](URL_DO_SEU_GIF_AQUI)
+![Pokédex Demo](GifTeste.gif)
 
 *Última atualização: 18 de Junho de 2025*
 
@@ -18,7 +18,9 @@ Aplicativo Pokédex desenvolvido com Ionic e Angular como parte de um desafio t�
 
 ## 🚀 Abordagem Técnica
 
-Adotei uma arquitetura moderna com **Componentes Standalone** do Angular para melhor performance e organização. A lógica de negócio foi abstraída em **Serviços** (`PokemonService`, `FavoriteService`) e disponibilizada via **Injeção de Dependência**, mantendo os componentes limpos e focados na UI. Para a persistência de dados no dispositivo, utilizei o **Ionic Storage**, garantindo que os favoritos sejam salvos localmente. A reatividade e as chamadas assíncronas à API são gerenciadas com **RxJS Observables**. A interface foi construída com componentes Ionic para garantir a responsividade e a paginação da lista é feita com `ion-infinite-scroll` para uma melhor experiência de usuário.
+Adotei uma arquitetura moderna com **Componentes Standalone** do Angular para melhor performance e organização. A lógica de negócio foi abstraída em **Serviços** (`PokemonService`, `FavoriteService`) e disponibilizada via **Injeção de Dependência**, mantendo os componentes limpos e focados na UI. 
+
+Para a persistência de dados no dispositivo, utilizei o **Ionic Storage**, garantindo que os favoritos sejam salvos localmente. A reatividade e as chamadas assíncronas à API são gerenciadas com **RxJS Observables**. A interface foi construída com componentes Ionic para garantir a responsividade e a paginação da lista é feita com `ion-infinite-scroll` para uma melhor experiência de usuário.
 
 ## ⚙️ Como Executar
 
