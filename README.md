@@ -26,7 +26,7 @@ Para a persistência de dados no dispositivo, utilizei o **Ionic Storage**, gara
 
 1.  Clone o repositório:
     ```bash
-    git clone [https://github.com/paulo-cardoso71/pokeapp-ionic-angular.git](https://github.com/paulo-cardoso71/pokeapp-ionic-angular.git)
+    git clone https://github.com/paulo-cardoso71/pokeapp-ionic-angular.git
     ```
 2.  Navegue até a pasta do projeto e instale as dependências:
     ```bash
