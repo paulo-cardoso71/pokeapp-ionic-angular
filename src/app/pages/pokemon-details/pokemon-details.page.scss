@@ -1,0 +1,25 @@
+.details-card {
+    // Define uma largura máxima. O card nunca ficará mais largo que 768px.
+    // Você pode ajustar este valor se quiser.
+    max-width: 768px;
+
+    // O truque clássico para centralizar um elemento de bloco na horizontal.
+    // Define as margens de cima/baixo como padrão e as laterais como automáticas.
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pokemon-image {
+    // 1. Transforma a imagem em um elemento de "bloco".
+    // Isso é necessário para que a centralização com 'margin' funcione.
+    display: block;
+
+    // 2. As margens laterais automáticas empurram o elemento para o centro.
+    margin-left: auto;
+    margin-right: auto;
+
+    // 3. (Opcional, mas recomendado) Define um tamanho para a imagem.
+    // Ajuste o valor para o tamanho que achar melhor.
+    width: 250px;
+    margin-bottom: 16px; // Adiciona um espaço abaixo da imagem, antes do nome.
+}

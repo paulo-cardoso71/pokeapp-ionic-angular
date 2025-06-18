@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      <img src="assets/icon/pokeball.svg" alt="Pokébola Icon"
+        style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;">
+      Pokédex
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">
+        <img src="assets/icon/pokeball" alt="Pokébola Icon"
+          style="width: 32px; height: 32px; vertical-align: middle; margin-right: 10px;">
+        Pokédex
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="ion-text-center" *ngIf="isLoading">
+    <ion-spinner name="crescent" color="primary"></ion-spinner>
+  </div>
+
+  <ion-list *ngIf="!isLoading">
+    <ion-item *ngFor="let p of pokemons" [routerLink]="['/details', p.id]" detail="true" button>
+      <ion-avatar slot="start">
+        <img [src]="p.image" />
+      </ion-avatar>
+      <ion-label>
+        <h2 class="ion-text-capitalize">{{ p.name }}</h2>
+        <p>#{{ p.id.toString().padStart(3, '0') }}</p>
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-button (click)="toggleFavorite(p, $event)">
+          <ion-icon slot="icon-only" [name]="favoriteService.isFavorite(p.id) ? 'star' : 'star-outline'"
+            color="primary"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="loadPokemons($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando mais...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>
