@@ -8,6 +8,16 @@
 
 Aplicativo Pokédex desenvolvido com Ionic e Angular como parte de um desafio técnico. O app consome a [PokeAPI](https://pokeapi.co/) para listar Pokémons, exibir seus detalhes completos e permitir que sejam marcados como favoritos, com os dados salvos localmente no dispositivo.
 
+## ⭐ Funcionalidades
+
+* **Lista de Pokémons** com paginação via Scroll Infinito.
+* **Busca Dinâmica** para filtrar Pokémons por nome em tempo real.
+* **Página de Detalhes** com mais de 6 atributos (status, habilidades, tipo, etc.).
+* **Sistema de Favoritos** com persistência de dados no dispositivo usando Ionic Storage.
+* **Testes Unitários** (Jasmine/Karma) para garantir a qualidade da lógica de negócio dos serviços.
+* **Design Responsivo** e adaptável para diferentes tamanhos de tela.
+* **Deploy Contínuo** via Vercel.
+
 ## 🧰 Tecnologias Utilizadas
 
 ![Ionic](https://img.shields.io/badge/Ionic-%233880FF.svg?style=for-the-badge&logo=ionic&logoColor=white)
@@ -41,6 +51,7 @@ Para a persistência de dados no dispositivo, utilizei o **Ionic Storage**, gara
 ---
 ## 💡 Problemas Conhecidos
 
+* **Bug de Deploy:** O projeto funciona perfeitamente em ambiente de desenvolvimento (`ionic serve`), mas apresenta um problema de renderização de CSS no build de produção do Vercel, que está sob investigação. A funcionalidade pode ser testada clonando o repositório.
 * **Propagação de Evento:** Ao clicar no ícone de favoritar na lista principal, a ação de favoritar funciona corretamente, mas a navegação para a página de detalhes também é acionada. Este é um problemade propagação de evento que, apesar das tentativas de solução via `event.stopPropagation()`, persiste devido a algum comportamento específico do ambiente de desenvolvimento. A funcionalidade principal de favoritar na tela de detalhes funciona perfeitamente.
 
 ## 👨‍💻 Autor
