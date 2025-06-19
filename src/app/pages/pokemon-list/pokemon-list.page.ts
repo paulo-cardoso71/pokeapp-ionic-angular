@@ -16,6 +16,7 @@ import { FavoriteService } from 'src/app/services/favorite.service';
 })
 export class PokemonListPage implements OnInit {
   pokemons: PokemonListItem[] = [];
+  pokemonsParaExibir: PokemonListItem[] = []; // Declaração da variável que faltava
   private offset = 0;
   isLoading = true;
 
@@ -33,14 +34,19 @@ export class PokemonListPage implements OnInit {
       (newPokemons) => {
         this.isLoading = false;
         this.pokemons = [...this.pokemons, ...newPokemons];
+        this.pokemonsParaExibir = this.pokemons;
         this.offset += 25;
 
-        // Se o evento do scroll infinito existir, complete-o
-        event?.target.complete();
+        // O 'complete' só precisa ser chamado uma vez
+        if (event) {
+          event.target.complete();
+        }
 
-        // Opcional: desabilitar o scroll se não houver mais pokémons a carregar
+        // Correção para o erro do TypeScript
         if (newPokemons.length < 25) {
-          event?.target.complete();
+          if (event) {
+            event.target.disabled = true;
+          }
         }
       },
       (error) => {
@@ -51,7 +57,15 @@ export class PokemonListPage implements OnInit {
   }
 
   toggleFavorite(pokemon: PokemonListItem, event: MouseEvent) {
-    event.stopPropagation(); // Impede que o clique no botão navegue para os detalhes
+    event.stopPropagation();
     this.favoriteService.toggleFavorite(pokemon);
+  }
+
+  // Declaração do método que faltava
+  handleInput(event: any) {
+    const query = event.target.value.toLowerCase();
+    this.pokemonsParaExibir = this.pokemons.filter((p) => {
+      return p.name.toLowerCase().indexOf(query) > -1;
+    });
   }
 }
